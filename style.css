@@ -213,6 +213,9 @@ button:focus {
     .main_slides_portfolio_slide {
         flex-direction: column;
     }
+    .fas fa-arrow-up {
+        font-size: 0.65em;
+    }
     h1 {
         font-size: 15px !important;
     }
