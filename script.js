@@ -174,9 +174,9 @@ function changePortfolioSlide(direction) {
 
 
 function handleMouseClick(e) {
-    if (downBtn.style.transform === `translateX(-17.5vw) rotate(90deg)` && e.target.className.includes('down')) {
+    if (downBtn.style.transform.includes(`rotate(90deg)`) && e.target.className.includes('down')) {
         changePortfolioSlide('left');
-    } else if (upBtn.style.transform === `translateX(75vw) rotate(90deg)` && e.target.className.includes('up')) {
+    } else if (upBtn.style.transform.includes(`rotate(90deg)`) && e.target.className.includes('up')) {
         changePortfolioSlide('right');
     } else if (e.target.className.includes('up')) {
         changeSlide('up');
