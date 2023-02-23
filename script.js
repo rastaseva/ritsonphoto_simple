@@ -8,6 +8,8 @@ const anyPortfolio = document.querySelectorAll('.main_slides:nth-child(3) > .mai
 const anyPortfolioPhotos = document.querySelectorAll('.main_slides_portfolio_slide > img');
 const portfolioSlide = document.querySelector('.main_slides_portfolio_slide');
 const portfolioSlide2 = document.querySelector('.main_slides_portfolio_slide:nth-child(2)');
+const mobileMediaQuery = window.matchMedia('(max-width: 450px)');
+const laptopMediaQuery = window.matchMedia('(min-width: 452px)');
 
 const slidesCount = mainSlide.querySelectorAll('.main_slides').length;
 const portfolioSlidesCount = portfolio.querySelectorAll('.main_slides_portfolio_slide').length;
@@ -75,8 +77,19 @@ function unwrapSlide(e) {
         e.style.transform = `translateX(-10vw)`
     }
     sidebar.style.transform = `translateX(-20vw)`
-    downBtn.style.transform = `translateX(-17.5vw) rotate(90deg)`
-    upBtn.style.transform = `translateX(75vw)  rotate(90deg)`
+
+    if (mobileMediaQuery.matches) {
+        downBtn.style.transform = `translateX(-17.5vw) rotate(90deg)`
+        upBtn.style.transform = `translateX(68vw)  rotate(90deg)`
+
+    } else if (laptopMediaQuery.matches) {
+        downBtn.style.transform = `translateX(-17.5vw) rotate(90deg)`
+        upBtn.style.transform = `translateX(69vw)  rotate(90deg)`
+    } else {
+        downBtn.style.transform = `translateX(-17.5vw) rotate(90deg)`
+        upBtn.style.transform = `translateX(75vw)  rotate(90deg)`
+    }
+
 
     setTimeout(() => {
         sidebar.style.visibility = 'hidden'
