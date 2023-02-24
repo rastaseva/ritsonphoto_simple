@@ -9,7 +9,7 @@ const anyPortfolioPhotos = document.querySelectorAll('.main_slides_portfolio_sli
 const portfolioSlide = document.querySelector('.main_slides_portfolio_slide');
 const portfolioSlide2 = document.querySelector('.main_slides_portfolio_slide:nth-child(2)');
 const mobileMediaQuery = window.matchMedia('(max-width: 450px)');
-const laptopMediaQuery = window.matchMedia('(min-width: 452px)');
+const laptopMediaQuery = window.matchMedia('(max-width: 800px)');
 
 const slidesCount = mainSlide.querySelectorAll('.main_slides').length;
 const portfolioSlidesCount = portfolio.querySelectorAll('.main_slides_portfolio_slide').length;
