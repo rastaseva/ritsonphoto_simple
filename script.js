@@ -10,6 +10,7 @@ const portfolioSlide = document.querySelector('.main_slides_portfolio_slide');
 const portfolioSlide2 = document.querySelector('.main_slides_portfolio_slide:nth-child(2)');
 const mobileMediaQuery = window.matchMedia('(max-width: 450px)');
 const laptopMediaQuery = window.matchMedia('(max-width: 800px)');
+const longMobileQuery = window.matchMedia('(max-width: 450px) and (min-height: 750px)');
 
 const slidesCount = mainSlide.querySelectorAll('.main_slides').length;
 const portfolioSlidesCount = portfolio.querySelectorAll('.main_slides_portfolio_slide').length;
@@ -21,7 +22,11 @@ let activePortfolioSlideIndex = 0
 
 mainSlide.style.top = `-${(slidesCount - 1) * 100}vh`
 portfolioSlide.style.right = `-${(portfolioSlidesCount - 1) * 100}vw`
-portfolioSlide2.style.right = `-${(portfolioSlidesCount - 2) * 80}vw`
+if (longMobileQuery.matches) {
+    portfolioSlide2.style.right = `-${(portfolioSlidesCount - 2) * 84}vw`
+} else {
+    portfolioSlide2.style.right = `-${(portfolioSlidesCount - 2) * 80}vw`
+}
 
 upBtn.addEventListener('click', handleMouseClick)
 downBtn.addEventListener('click', handleMouseClick)
@@ -166,6 +171,8 @@ function changePortfolioSlide(direction) {
         portfolio.style.transform = `translateX(-${activePortfolioSlideIndex * width}px)`
     } else if (activePortfolioSlideIndex === 2) {
         portfolio.style.transform = `translateX(calc(-${activePortfolioSlideIndex * width}px - 50vw))`
+    } else if (longMobileQuery.matches) {
+        portfolio.style.transform = `translateX(calc(-${activePortfolioSlideIndex * width}px - 15vw))`
     } else {
         portfolio.style.transform = `translateX(calc(-${activePortfolioSlideIndex * width}px - 10vw))`
     }
